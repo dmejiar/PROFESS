@@ -96,13 +96,13 @@ ifeq ($(MACHINE),x86_64)
   #---------------------
   # FFLAGS flag
   #---------------------
-  FFLAGS=-O3 -I${XC_DIR}include -I${FFTW_DIR}/include -cpp
+  FFLAGS=-O3 -I${XC_DIR}include -I${FFTW_DIR}/include -cpp -J${WORKDIR}
 
   #---------------------
   # LDLIBS flag
   #---------------------
   # for those who want to use compiled LAPACK, Libxc and FFTW3 packages.
-  LDLIBS = -L${LAPACK_DIR} -llapack -lrefblas -L${XC_DIR}/lib/ -lxc -L${FFTW_DIR}/lib -lfftw3 -lm 
+  LDLIBS = -L${LAPACK_DIR} -llapack -lrefblas -L${XC_DIR}/lib/ -lxcf90 -lxc -L${FFTW_DIR}/lib -lfftw3 -lm 
 
 
 #----------------------------------------------------------------------------------
@@ -143,7 +143,7 @@ ifeq ($(MACHINE),x86_64)
   # for those who want to use Intel Math Kernel Library (Intel MKL) plus compiled Libxc package 
   #LDLIBS = -shared-intel -mkl=sequential ${XC_DIR}/lib/libxc.a 
   # for those who want to use compiled LAPACK, Libxc and FFTW3 packages.
-  #LDLIBS = -L${LAPACK_DIR} -llapack -lrefblas -L${XC_DIR}/lib/ -lxc -L${FFTW_DIR}/lib -lfftw3 -lm
+  #LDLIBS = -L${LAPACK_DIR} -llapack -lrefblas -L${XC_DIR}/lib/ -lxcf90 -lxc -L${FFTW_DIR}/lib -lfftw3 -lm
   
   # parallel version
   #LDLIBS_PAR = -L${FFTW_DIR}/lib -lfftw3_mpi -lfftw3 -lm 
